@@ -1,12 +1,12 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.2.25",
-    "lastTouchedAt": "2026-03-02T04:21:29.255Z"
+    "lastTouchedVersion": "2026.3.1",
+    "lastTouchedAt": "2026-03-03T10:16:47.542Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-02T04:21:29.240Z",
-    "lastRunVersion": "2026.2.25",
-    "lastRunCommand": "configure",
+    "lastRunAt": "2026-03-03T10:16:47.528Z",
+    "lastRunVersion": "2026.3.1",
+    "lastRunCommand": "onboard",
     "lastRunMode": "local"
   },
   "auth": {
@@ -14,16 +14,26 @@
       "openai-codex:default": {
         "provider": "openai-codex",
         "mode": "oauth"
+      },
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "openai-codex/gpt-5.3-codex"
+        "primary": "google/gemini-3-pro-preview",
+        "fallbacks": [
+          "google/gemini-3-flash-preview"
+        ]
       },
       "models": {
-        "openai-codex/gpt-5.3-codex": {}
+        "openai-codex/gpt-5.3-codex": {},
+        "google/gemini-3-flash-preview": {
+          "alias": "Gemini Flash (Failover)"
+        }
       },
       "workspace": "/home/gesang/.openclaw/workspace",
       "compaction": {
@@ -37,8 +47,8 @@
     "list": [
       {
         "id": "main",
-        "name": "Chels Main",
         "default": true,
+        "name": "Chels Main",
         "workspace": "/home/gesang/.openclaw/workspace",
         "agentDir": "/home/gesang/.openclaw/agents/main/agent",
         "model": "openai-codex/gpt-5.3-codex"
@@ -52,6 +62,22 @@
       }
     ]
   },
+  "bindings": [
+    {
+      "agentId": "chelswork",
+      "match": {
+        "channel": "telegram",
+        "accountId": "chelswork"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram",
+        "accountId": "default"
+      }
+    }
+  ],
   "messages": {
     "ackReactionScope": "group-mentions"
   },
@@ -67,6 +93,7 @@
   "channels": {
     "telegram": {
       "enabled": true,
+      "dmPolicy": "pairing",
       "groupPolicy": "allowlist",
       "streaming": "off",
       "network": {
@@ -75,15 +102,19 @@
       },
       "accounts": {
         "default": {
+          "dmPolicy": "pairing",
           "botToken": "8449915045:AAFvFIpRGKXCDFEpOYewJoKfNJlwHeyBif0",
-          "dmPolicy": "pairing"
+          "groupPolicy": "allowlist",
+          "streaming": "off"
         },
         "chelswork": {
-          "botToken": "8661811430:AAFsM1aDwmX6-MjqtPoCOs60Ds6yjsyd4mA",
           "dmPolicy": "allowlist",
+          "botToken": "8661811430:AAFsM1aDwmX6-MjqtPoCOs60Ds6yjsyd4mA",
           "allowFrom": [
             "tg:1576511761"
-          ]
+          ],
+          "groupPolicy": "allowlist",
+          "streaming": "off"
         }
       },
       "botToken": "REDACTED"
@@ -128,21 +159,5 @@
         "enabled": true
       }
     }
-  },
-  "bindings": [
-    {
-      "agentId": "chelswork",
-      "match": {
-        "channel": "telegram",
-        "accountId": "chelswork"
-      }
-    },
-    {
-      "agentId": "main",
-      "match": {
-        "channel": "telegram",
-        "accountId": "default"
-      }
-    }
-  ]
+  }
 }
