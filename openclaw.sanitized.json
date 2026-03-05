@@ -105,7 +105,10 @@
           "dmPolicy": "pairing",
           "botToken": "8449915045:AAFvFIpRGKXCDFEpOYewJoKfNJlwHeyBif0",
           "groupPolicy": "allowlist",
-          "streaming": "off"
+          "streaming": "off",
+          "groupAllowFrom": [
+            "1576511761"
+          ]
         },
         "chelswork": {
           "dmPolicy": "allowlist",
@@ -117,6 +120,9 @@
           "streaming": "off"
         }
       },
+      "groupAllowFrom": [
+        "1576511761"
+      ],
       "botToken": "REDACTED"
     }
   },
@@ -141,6 +147,9 @@
         "contacts.add",
         "reminders.add"
       ]
+    },
+    "remote": {
+      "token": "94bd25ddccfaece141813f7c42363e670ae22126f8b0db69"
     }
   },
   "skills": {

@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CFG_DIR="$HOME/.config/search-manager"
+CFG_FILE="$CFG_DIR/config.json"
+KEYS_FILE="$HOME/.openclaw/search_keys.json"
+mkdir -p "$CFG_DIR"
+
+init_cfg() {
+  if [ ! -f "$CFG_FILE" ]; then
+    cat > "$CFG_FILE" <<'JSON'
+{
+  "order": ["serper", "tavily"],
+  "default_gl": "id",
+  "default_hl": "id"
+}
+JSON
+  fi
+}
+
+read_cfg() {
+  python3 - <<'PY' "$CFG_FILE" "$1"
+import json,sys
+p,key=sys.argv[1],sys.argv[2]
+cfg=json.load(open(p))
+val=cfg.get(key)
+if isinstance(val,list): print(','.join(val))
+elif val is None: print('')
+else: print(val)
+PY
+}
+
+write_order() {
+  python3 - <<'PY' "$CFG_FILE" "$1"
+import json,sys
+p,raw=sys.argv[1],sys.argv[2]
+order=[x.strip().lower() for x in raw.split(',') if x.strip()]
+valid={'serper','tavily'}
+if not order or any(x not in valid for x in order):
+    raise SystemExit('Invalid order. Example: serper,tavily or tavily,serper')
+cfg=json.load(open(p))
+cfg['order']=order
+json.dump(cfg, open(p,'w'), indent=2)
+print('ok')
+PY
+}
+
+set_locale() {
+  python3 - <<'PY' "$CFG_FILE" "$1" "$2"
+import json,sys,re
+p,gl,hl=sys.argv[1],sys.argv[2],sys.argv[3]
+if not re.fullmatch(r'[a-z]{2}', gl) or not re.fullmatch(r'[a-z]{2}', hl):
+    raise SystemExit('gl/hl must be 2-letter lowercase, e.g. id en')
+cfg=json.load(open(p))
+cfg['default_gl']=gl
+cfg['default_hl']=hl
+json.dump(cfg, open(p,'w'), indent=2)
+print('ok')
+PY
+}
+
+status() {
+  init_cfg
+  order=$(read_cfg order)
+  gl=$(read_cfg default_gl)
+  hl=$(read_cfg default_hl)
+  echo "Search Manager"
+  echo "  order      : ${order}"
+  echo "  default_gl : ${gl}"
+  echo "  default_hl : ${hl}"
+  echo "  keys_file  : ${KEYS_FILE}"
+}
+
+show_config_redacted() {
+  init_cfg
+  python3 - <<'PY' "$CFG_FILE" "$KEYS_FILE"
+import json,sys,pathlib
+cfg_path,keys_path=sys.argv[1],sys.argv[2]
+out={}
+try:
+    out['config']=json.load(open(cfg_path))
+except Exception:
+    out['config']={}
+keys={}
+try:
+    keys=json.load(open(keys_path))
+except Exception:
+    keys={}
+
+def redact(v):
+    if not v: return ''
+    s=str(v)
+    if len(s)<=8: return '*'*len(s)
+    return s[:4] + '...' + s[-4:]
+
+safe={}
+for k in ('serper_api_key','tavily_api_key'):
+    if k in keys: safe[k]=redact(keys.get(k))
+for k in ('serper_api_keys','tavily_api_keys'):
+    if k in keys and isinstance(keys[k],list):
+        safe[k]=[redact(x) for x in keys[k]]
+out['keys_redacted']=safe
+print(json.dumps(out, indent=2))
+PY
+}
+
+reset_cfg(){
+  rm -f "$CFG_FILE"
+  init_cfg
+  echo "ok"
+}
+
+usage(){
+cat <<'TXT'
+Usage:
+  search_manager status
+  search_manager set-order serper,tavily
+  search_manager set-order tavily,serper
+  search_manager set-default-locale <gl> <hl>
+  search_manager show-config --redacted
+  search_manager reset
+TXT
+}
+
+main(){
+  init_cfg
+  cmd="${1:-}"
+  case "$cmd" in
+    status) status ;;
+    set-order) [ $# -ge 2 ] || { echo 'missing order'; exit 1; }; write_order "$2" ;;
+    set-default-locale) [ $# -ge 3 ] || { echo 'missing gl hl'; exit 1; }; set_locale "$2" "$3" ;;
+    show-config)
+      if [ "${2:-}" = "--redacted" ]; then show_config_redacted; else echo 'use --redacted'; exit 1; fi ;;
+    reset) reset_cfg ;;
+    *) usage; exit 1 ;;
+  esac
+}
+
+main "$@"
