@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.1",
-    "lastTouchedAt": "2026-03-03T10:16:47.542Z"
+    "lastTouchedVersion": "2026.3.2",
+    "lastTouchedAt": "2026-03-06T03:17:04.112Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-03T10:16:47.528Z",
@@ -51,7 +51,13 @@
         "name": "Chels Main",
         "workspace": "/home/gesang/.openclaw/workspace",
         "agentDir": "/home/gesang/.openclaw/agents/main/agent",
-        "model": "openai-codex/gpt-5.3-codex"
+        "model": "openai-codex/gpt-5.3-codex",
+        "groupChat": {
+          "mentionPatterns": [
+            "@Chels_all_bot",
+            "@cilokdong666"
+          ]
+        }
       },
       {
         "id": "chelswork",
@@ -93,22 +99,35 @@
   "channels": {
     "telegram": {
       "enabled": true,
-      "dmPolicy": "pairing",
+      "dmPolicy": "allowlist",
+      "groupAllowFrom": [
+        "1576511761",
+        "1721826632"
+      ],
       "groupPolicy": "allowlist",
       "streaming": "off",
       "network": {
         "autoSelectFamily": false,
         "dnsResultOrder": "ipv4first"
       },
+      "groups": {
+        "-5266108981": {
+          "requireMention": true
+        },
+        "-1003763879266": {
+          "requireMention": true
+        }
+      },
       "accounts": {
         "default": {
           "dmPolicy": "pairing",
           "botToken": "8449915045:AAFvFIpRGKXCDFEpOYewJoKfNJlwHeyBif0",
-          "groupPolicy": "allowlist",
-          "streaming": "off",
           "groupAllowFrom": [
-            "1576511761"
-          ]
+            "1576511761",
+            "1721826632"
+          ],
+          "groupPolicy": "allowlist",
+          "streaming": "off"
         },
         "chelswork": {
           "dmPolicy": "allowlist",
@@ -116,13 +135,13 @@
           "allowFrom": [
             "tg:1576511761"
           ],
+          "groupAllowFrom": [
+            "1576511761"
+          ],
           "groupPolicy": "allowlist",
           "streaming": "off"
         }
       },
-      "groupAllowFrom": [
-        "1576511761"
-      ],
       "botToken": "REDACTED"
     }
   },
@@ -138,6 +157,9 @@
       "mode": "off",
       "resetOnExit": false
     },
+    "remote": {
+      "token": "94bd25ddccfaece141813f7c42363e670ae22126f8b0db69"
+    },
     "nodes": {
       "denyCommands": [
         "camera.snap",
@@ -147,9 +169,6 @@
         "contacts.add",
         "reminders.add"
       ]
-    },
-    "remote": {
-      "token": "94bd25ddccfaece141813f7c42363e670ae22126f8b0db69"
     }
   },
   "skills": {
