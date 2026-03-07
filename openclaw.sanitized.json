@@ -1,12 +1,12 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.2",
-    "lastTouchedAt": "2026-03-06T03:17:04.112Z"
+    "lastTouchedAt": "2026-03-07T04:34:58.904Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-03T10:16:47.528Z",
-    "lastRunVersion": "2026.3.1",
-    "lastRunCommand": "onboard",
+    "lastRunAt": "2026-03-07T04:34:58.883Z",
+    "lastRunVersion": "2026.3.2",
+    "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
   "auth": {
@@ -100,6 +100,18 @@
     "telegram": {
       "enabled": true,
       "dmPolicy": "allowlist",
+      "groups": {
+        "-5266108981": {
+          "requireMention": true
+        },
+        "-1003763879266": {
+          "requireMention": true
+        }
+      },
+      "allowFrom": [
+        "1576511761",
+        "-1003763879266"
+      ],
       "groupAllowFrom": [
         "1576511761",
         "1721826632"
@@ -109,14 +121,6 @@
       "network": {
         "autoSelectFamily": false,
         "dnsResultOrder": "ipv4first"
-      },
-      "groups": {
-        "-5266108981": {
-          "requireMention": true
-        },
-        "-1003763879266": {
-          "requireMention": true
-        }
       },
       "accounts": {
         "default": {
