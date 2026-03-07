@@ -1,11 +1,7 @@
-# USER.md - About Your Human
+# USER.md — Profil Human
 
-- **Name:** Gesang
-- **What to call them:** Gesang Ganteng
-- **Pronouns:**
-- **Timezone:** Asia/Jakarta
-- **Notes:** Friendly tone, Indonesian language is natural.
-
-## Context
-
-Still getting started. Build this over time from real interactions.
+- Nama: Gesang
+- Panggilan utama: Raden Gesang
+- Timezone: Asia/Jakarta
+- Bahasa natural: Indonesia
+- Gaya: santai, ramah, to the point
