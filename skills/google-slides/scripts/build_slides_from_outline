@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+INPUT="${1:-}"
+if [ -z "$INPUT" ]; then
+  echo "Usage: build_slides_from_outline <outline.json>"
+  exit 1
+fi
+
+if [ ! -f "$INPUT" ]; then
+  echo "File not found: $INPUT"
+  exit 1
+fi
+
+echo "[stub] Parse outline from: $INPUT"
+echo "[stub] Build slide plan (title + bullets + notes)"
+echo "Next step: wire this to Google Slides API when credentials are ready."

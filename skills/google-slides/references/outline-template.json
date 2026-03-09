@@ -1,0 +1,16 @@
+{
+  "deck_title": "Quarterly Business Review",
+  "audience": "Leadership Team",
+  "goal": "Present KPI, insights, and next-quarter plan",
+  "slides": [
+    {
+      "title": "Executive Summary",
+      "bullets": [
+        "Top 3 highlights this quarter",
+        "Biggest challenge and mitigation",
+        "Decision needed from stakeholders"
+      ],
+      "notes": "Keep this under 90 seconds"
+    }
+  ]
+}

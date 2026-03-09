@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[stub] rewrite_slide_copy"
+echo "Input: slide title + bullets"
+echo "Output: concise, audience-fit copy"
