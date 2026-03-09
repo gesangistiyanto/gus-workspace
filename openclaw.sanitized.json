@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.2",
-    "lastTouchedAt": "2026-03-07T04:34:58.904Z"
+    "lastTouchedAt": "2026-03-09T04:42:39.682Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-07T04:34:58.883Z",
@@ -94,7 +94,22 @@
     "ownerDisplay": "raw"
   },
   "session": {
-    "dmScope": "per-channel-peer"
+    "scope": "per-sender",
+    "dmScope": "per-peer",
+    "resetByType": {
+      "direct": {
+        "mode": "idle",
+        "idleMinutes": 9007199254740991
+      },
+      "group": {
+        "mode": "daily",
+        "atHour": 4
+      },
+      "thread": {
+        "mode": "idle",
+        "idleMinutes": 360
+      }
+    }
   },
   "channels": {
     "telegram": {
