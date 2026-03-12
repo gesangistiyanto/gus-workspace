@@ -1,12 +1,12 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.2",
-    "lastTouchedAt": "2026-03-09T04:42:39.682Z"
+    "lastTouchedVersion": "2026.3.11",
+    "lastTouchedAt": "2026-03-12T07:09:42.334Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-07T04:34:58.883Z",
-    "lastRunVersion": "2026.3.2",
-    "lastRunCommand": "doctor",
+    "lastRunAt": "2026-03-12T06:37:44.328Z",
+    "lastRunVersion": "2026.3.11",
+    "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
   "auth": {
@@ -24,16 +24,24 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "google/gemini-3-pro-preview",
+        "primary": "groq/gemma2-9b-it",
         "fallbacks": [
-          "google/gemini-3-flash-preview"
+          "openai-codex/gpt-5.3-codex",
+          "google/gemini-3-flash-preview",
+          "groq/llama3-70b-8192",
+          "groq/llama3-8b-8192",
+          "groq/meta-llama/llama-4-scout-17b-16e-instruct"
         ]
       },
       "models": {
         "openai-codex/gpt-5.3-codex": {},
         "google/gemini-3-flash-preview": {
           "alias": "Gemini Flash (Failover)"
-        }
+        },
+        "groq/gemma2-9b-it": {},
+        "groq/llama3-70b-8192": {},
+        "groq/llama3-8b-8192": {},
+        "groq/meta-llama/llama-4-scout-17b-16e-instruct": {}
       },
       "workspace": "/home/gesang/.openclaw/workspace",
       "compaction": {
