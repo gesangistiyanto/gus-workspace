@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-24T13:30:44.774Z"
+    "lastTouchedVersion": "2026.3.31",
+    "lastTouchedAt": "2026-04-01T12:40:19.705Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-12T06:37:44.328Z",
@@ -24,9 +24,8 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "groq/gemma2-9b-it",
+        "primary": "google/gemini-3-flash-preview",
         "fallbacks": [
-          "openai-codex/gpt-5.3-codex",
           "google/gemini-3-flash-preview",
           "groq/llama3-70b-8192",
           "groq/llama3-8b-8192",
@@ -34,7 +33,6 @@
         ]
       },
       "models": {
-        "openai-codex/gpt-5.3-codex": {},
         "google/gemini-3-flash-preview": {
           "alias": "Gemini Flash (Failover)"
         },
@@ -59,7 +57,6 @@
         "name": "Chels Main",
         "workspace": "/home/gesang/.openclaw/workspace",
         "agentDir": "/home/gesang/.openclaw/agents/main/agent",
-        "model": "openai-codex/gpt-5.3-codex",
         "groupChat": {
           "mentionPatterns": [
             "@Chels_all_bot",
@@ -71,8 +68,7 @@
         "id": "chelswork",
         "name": "Chels Work",
         "workspace": "/home/gesang/.openclaw/workspace-chelswork",
-        "agentDir": "/home/gesang/.openclaw/agents/chelswork/agent",
-        "model": "openai-codex/gpt-5.3-codex"
+        "agentDir": "/home/gesang/.openclaw/agents/chelswork/agent"
       }
     ]
   },
