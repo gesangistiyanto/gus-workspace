@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.31",
-    "lastTouchedAt": "2026-04-02T02:59:37.989Z"
+    "lastTouchedVersion": "2026.4.2",
+    "lastTouchedAt": "2026-04-07T13:35:22.347Z"
   },
   "wizard": {
-    "lastRunAt": "2026-04-02T02:57:36.854Z",
-    "lastRunVersion": "2026.3.31",
+    "lastRunAt": "2026-04-07T13:35:22.275Z",
+    "lastRunVersion": "2026.4.2",
     "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
