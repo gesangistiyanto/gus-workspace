@@ -1,11 +1,11 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.4.9",
-    "lastTouchedAt": "2026-04-14T04:50:58.826Z"
+    "lastTouchedAt": "2026-04-15T02:38:10.531Z"
   },
   "wizard": {
-    "lastRunAt": "2026-04-07T13:35:22.275Z",
-    "lastRunVersion": "2026.4.2",
+    "lastRunAt": "2026-04-15T02:38:10.368Z",
+    "lastRunVersion": "2026.4.9",
     "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
@@ -49,19 +49,7 @@
         ]
       },
       "models": {
-        "google/gemini-3-flash-preview": {
-          "alias": "Gemini Flash (Failover)"
-        },
-        "groq/gemma2-9b-it": {},
-        "groq/llama3-70b-8192": {},
-        "groq/llama3-8b-8192": {},
-        "groq/meta-llama/llama-4-scout-17b-16e-instruct": {},
-        "google-gemini-cli/gemini-3.1-pro-preview": {},
-        "google-gemini-cli/gemini-2.5-flash": {},
-        "google-gemini-cli/gemini-3-flash-preview": {},
-        "openai-codex/gpt-5.4": {},
-        "openai-codex/gpt-5.3-codex": {},
-        "openai-codex/gpt-5.4-mini": {}
+        "openai-codex/gpt-5.4": {}
       },
       "workspace": "/home/gesang/.openclaw/workspace",
       "compaction": {
