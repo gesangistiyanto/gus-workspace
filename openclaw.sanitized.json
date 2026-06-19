@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.4.9",
-    "lastTouchedAt": "2026-04-15T02:38:10.531Z"
+    "lastTouchedVersion": "2026.6.8",
+    "lastTouchedAt": "2026-06-19T05:56:09.594Z"
   },
   "wizard": {
-    "lastRunAt": "2026-04-15T02:38:10.368Z",
-    "lastRunVersion": "2026.4.9",
+    "lastRunAt": "2026-06-19T05:56:09.519Z",
+    "lastRunVersion": "2026.6.8",
     "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
@@ -36,20 +36,21 @@
       "model": {
         "primary": "openai-codex/gpt-5.4",
         "fallbacks": [
-          "openai-codex/gpt-5.4",
-          "groq/gemma2-9b-it",
-          "groq/llama3-70b-8192",
-          "groq/llama3-8b-8192",
-          "groq/meta-llama/llama-4-scout-17b-16e-instruct",
-          "google-gemini-cli/gemini-3.1-pro-preview",
-          "google-gemini-cli/gemini-2.5-flash",
-          "google-gemini-cli/gemini-3-flash-preview",
           "openai-codex/gpt-5.3-codex",
-          "openai-codex/gpt-5.4-mini"
+          "openai-codex/gpt-5.4-mini",
+          "openai-codex/gpt-5.3-codex-spark"
         ]
       },
       "models": {
-        "openai-codex/gpt-5.4": {}
+        "openai-codex/gpt-5.4": {},
+        "openai-codex/gpt-5.3-codex": {},
+        "openai-codex/gpt-5.4-mini": {},
+        "openai-codex/gpt-5.3-codex-spark": {},
+        "google/gemini-3.1-pro-preview": {
+          "agentRuntime": {
+            "id": "google-gemini-cli"
+          }
+        }
       },
       "workspace": "/home/gesang/.openclaw/workspace",
       "compaction": {
