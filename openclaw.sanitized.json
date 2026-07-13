@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.6.8",
-    "lastTouchedAt": "2026-06-19T05:56:09.594Z"
+    "lastTouchedVersion": "2026.6.11",
+    "lastTouchedAt": "2026-07-13T02:51:58.050Z"
   },
   "wizard": {
-    "lastRunAt": "2026-06-19T05:56:09.519Z",
-    "lastRunVersion": "2026.6.8",
+    "lastRunAt": "2026-07-13T02:51:57.992Z",
+    "lastRunVersion": "2026.6.11",
     "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
@@ -26,6 +26,11 @@
       },
       "openai-codex:gesangistiyanto@gmail.com": {
         "provider": "openai-codex",
+        "mode": "oauth",
+        "email": "gesangistiyanto@gmail.com"
+      },
+      "openai:gesangistiyanto@gmail.com": {
+        "provider": "openai",
         "mode": "oauth",
         "email": "gesangistiyanto@gmail.com"
       }
@@ -50,7 +55,9 @@
           "agentRuntime": {
             "id": "google-gemini-cli"
           }
-        }
+        },
+        "openai/gpt-5.5": {},
+        "openai/gpt-5.4-mini": {}
       },
       "workspace": "/home/gesang/.openclaw/workspace",
       "compaction": {
