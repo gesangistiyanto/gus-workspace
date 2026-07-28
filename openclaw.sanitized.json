@@ -1,20 +1,16 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.6.11",
-    "lastTouchedAt": "2026-07-13T02:51:58.050Z"
+    "lastTouchedVersion": "2026.7.1-2",
+    "lastTouchedAt": "2026-07-27T04:42:18.088Z"
   },
   "wizard": {
-    "lastRunAt": "2026-07-13T02:51:57.992Z",
-    "lastRunVersion": "2026.6.11",
+    "lastRunAt": "2026-07-27T04:42:17.983Z",
+    "lastRunVersion": "2026.7.1-2",
     "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
   "auth": {
     "profiles": {
-      "openai-codex:default": {
-        "provider": "openai-codex",
-        "mode": "oauth"
-      },
       "google:default": {
         "provider": "google",
         "mode": "api_key"
@@ -24,40 +20,68 @@
         "mode": "oauth",
         "email": "gesangistiyanto@gmail.com"
       },
-      "openai-codex:gesangistiyanto@gmail.com": {
-        "provider": "openai-codex",
-        "mode": "oauth",
-        "email": "gesangistiyanto@gmail.com"
-      },
       "openai:gesangistiyanto@gmail.com": {
         "provider": "openai",
         "mode": "oauth",
         "email": "gesangistiyanto@gmail.com"
+      },
+      "openai:default": {
+        "provider": "openai",
+        "mode": "oauth"
+      },
+      "openai:chatgpt-gesangistiyanto@gmail.com": {
+        "provider": "openai",
+        "mode": "oauth",
+        "email": "gesangistiyanto@gmail.com"
+      },
+      "opencode:default": {
+        "provider": "opencode",
+        "mode": "api_key"
+      },
+      "opencode-go:default": {
+        "provider": "opencode-go",
+        "mode": "api_key"
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "openai-codex/gpt-5.4",
+        "primary": "openai/gpt-5.4",
         "fallbacks": [
-          "openai-codex/gpt-5.3-codex",
-          "openai-codex/gpt-5.4-mini",
-          "openai-codex/gpt-5.3-codex-spark"
+          "openai/gpt-5.3-codex",
+          "openai/gpt-5.4-mini",
+          "openai/gpt-5.3-codex-spark"
         ]
       },
       "models": {
-        "openai-codex/gpt-5.4": {},
-        "openai-codex/gpt-5.3-codex": {},
-        "openai-codex/gpt-5.4-mini": {},
-        "openai-codex/gpt-5.3-codex-spark": {},
         "google/gemini-3.1-pro-preview": {
           "agentRuntime": {
             "id": "google-gemini-cli"
           }
         },
         "openai/gpt-5.5": {},
-        "openai/gpt-5.4-mini": {}
+        "openai/gpt-5.4-mini": {
+          "agentRuntime": {
+            "id": "codex"
+          }
+        },
+        "openai/gpt-5.4": {
+          "agentRuntime": {
+            "id": "codex"
+          }
+        },
+        "openai/gpt-5.3-codex": {
+          "agentRuntime": {
+            "id": "codex"
+          }
+        },
+        "openai/gpt-5.3-codex-spark": {
+          "agentRuntime": {
+            "id": "codex"
+          }
+        },
+        "opencode/big-pickle": {}
       },
       "workspace": "/home/gesang/.openclaw/workspace",
       "compaction": {
@@ -225,6 +249,90 @@
       },
       "openai-whisper-api": {
         "apiKey": "REDACTED"
+      },
+      "1password": {
+        "enabled": false
+      },
+      "blogwatcher": {
+        "enabled": false
+      },
+      "blucli": {
+        "enabled": false
+      },
+      "camsnap": {
+        "enabled": false
+      },
+      "coding-agent": {
+        "enabled": false
+      },
+      "eightctl": {
+        "enabled": false
+      },
+      "gh-issues": {
+        "enabled": false
+      },
+      "gifgrep": {
+        "enabled": false
+      },
+      "gog": {
+        "enabled": false
+      },
+      "goplaces": {
+        "enabled": false
+      },
+      "himalaya": {
+        "enabled": false
+      },
+      "mcporter": {
+        "enabled": false
+      },
+      "nano-pdf": {
+        "enabled": false
+      },
+      "obsidian": {
+        "enabled": false
+      },
+      "openai-whisper": {
+        "enabled": false
+      },
+      "openhue": {
+        "enabled": false
+      },
+      "oracle": {
+        "enabled": false
+      },
+      "ordercli": {
+        "enabled": false
+      },
+      "sag": {
+        "enabled": false
+      },
+      "session-logs": {
+        "enabled": false
+      },
+      "sherpa-onnx-tts": {
+        "enabled": false
+      },
+      "songsee": {
+        "enabled": false
+      },
+      "sonoscli": {
+        "enabled": false
+      },
+      "spotify-player": {
+        "enabled": false
+      },
+      "summarize": {
+        "enabled": false
+      },
+      "tavily": {
+        "enabled": false
+      },
+      "trello": {
+        "enabled": false
+      },
+      "xurl": {
+        "enabled": false
       }
     }
   },
@@ -237,6 +345,12 @@
         "enabled": true
       },
       "openai": {
+        "enabled": true
+      },
+      "codex": {
+        "enabled": true
+      },
+      "opencode": {
         "enabled": true
       }
     }
